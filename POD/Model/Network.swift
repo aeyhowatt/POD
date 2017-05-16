@@ -19,7 +19,7 @@ class Network {
     func fetchOrderArray( status: Int=1,onComplete: @escaping (_ array: [Order]?) -> Void,onFailure: @escaping () -> Void){
         let SUB_LINK = "/order.php" // /customer/1
         
-        let request = Alamofire.request(BASE_LINK+SUB_LINK, method: .get, parameters: ["status":status])
+        let request = Alamofire.request(BASE_LINK+SUB_LINK, method: .get, parameters: ["status_id":status])
             .responseArray { (response: DataResponse<[Order]>) in
                 //                print("Fetching at:\(response.request?.url?.absoluteString)")
                 switch response.result {
@@ -38,22 +38,23 @@ class Network {
         }
 //        requests.append(request)
     }
-    func updateOrderArray( status: Int=1, orderID: Int=0,onComplete: @escaping (_ array: [Order]?) -> Void,onFailure: @escaping () -> Void){
+    func updateOrderArray( status: Int=1, orderID: Int=0,onComplete: @escaping (_ result: Result?) -> Void,onFailure: @escaping () -> Void){
         let SUB_LINK = "/update_status.php" // /customer/1
         
-        let request = Alamofire.request(BASE_LINK+SUB_LINK, method: .put, parameters: ["order_id":orderID, "status_id":status])
-            .responseArray { (response: DataResponse<[Order]>) in
+        let request = Alamofire.request(BASE_LINK+SUB_LINK, method: .post, parameters: ["status_id":status,"order_id":orderID])
+            .responseObject { (response: DataResponse<Result>) in
                 //                print("Fetching at:\(response.request?.url?.absoluteString)")
                 switch response.result {
                 case .success:
-                    var array:[Order]? = nil
+                    var result:Result? = nil
                     if let JSON = response.result.value{
-                        array = JSON
+                        result = JSON
                     }
                     print("Complete")
-                    onComplete(array)
+                    onComplete(result)
                     break
                 case .failure:
+                    
                     print("Fetching Failed at:\(response.request?.url?.absoluteString)")
                     onFailure()
                 }

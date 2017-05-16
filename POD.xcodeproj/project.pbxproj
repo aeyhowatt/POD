@@ -28,6 +28,10 @@
 		2465DCE01EAF896D0092B46B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2465DCDF1EAF896D0092B46B /* Product.swift */; };
 		2465DCE21EAF8A7A0092B46B /* DCStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2465DCE11EAF8A7A0092B46B /* DCStaff.swift */; };
 		2465DCE61EAF8CAD0092B46B /* DistributionCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2465DCE51EAF8CAD0092B46B /* DistributionCenter.swift */; };
+		2481664A1EC7246800BF54E6 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248166481EC7246800BF54E6 /* ItemTableViewCell.swift */; };
+		2481664B1EC7246800BF54E6 /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 248166491EC7246800BF54E6 /* ItemTableViewCell.xib */; };
+		2481664F1EC74F2200BF54E6 /* MergedOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481664E1EC74F2200BF54E6 /* MergedOrder.swift */; };
+		248166511EC8B0AD00BF54E6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248166501EC8B0AD00BF54E6 /* Result.swift */; };
 		2492DA2B1EC20FB1009AB12E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2492DA2A1EC20FB1009AB12E /* Network.swift */; };
 		24BB0B251E940B4A00B2C578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BB0B241E940B4A00B2C578 /* AppDelegate.swift */; };
 		24BB0B271E940B4A00B2C578 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BB0B261E940B4A00B2C578 /* OrdersViewController.swift */; };
@@ -43,6 +47,10 @@
 		24C0C2891EAF984A0031B006 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C0C2871EAF984A0031B006 /* OrderTableViewCell.xib */; };
 		24D2F5F11EB5E0130077F7FC /* PackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D2F5F01EB5E0130077F7FC /* PackViewController.swift */; };
 		24D2F5F31EB5E1A70077F7FC /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D2F5F21EB5E1A70077F7FC /* DeliveryViewController.swift */; };
+		24D5F40E1ECABE370033E08C /* AddCustomerBasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D5F40D1ECABE370033E08C /* AddCustomerBasicViewController.swift */; };
+		24D5F4101ECABE530033E08C /* AddCustomerAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D5F40F1ECABE530033E08C /* AddCustomerAddressViewController.swift */; };
+		24D5F4121ECABE640033E08C /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D5F4111ECABE640033E08C /* AddProductViewController.swift */; };
+		24D5F4161ECABF380033E08C /* AddOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D5F4151ECABF380033E08C /* AddOrderViewController.swift */; };
 		A632EFFC5BC310C767E93DF3 /* Pods_POD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743C1A51283082C54735CCE1 /* Pods_POD.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +94,10 @@
 		2465DCDF1EAF896D0092B46B /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = Model/Product.swift; sourceTree = "<group>"; };
 		2465DCE11EAF8A7A0092B46B /* DCStaff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DCStaff.swift; path = Model/DCStaff.swift; sourceTree = "<group>"; };
 		2465DCE51EAF8CAD0092B46B /* DistributionCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DistributionCenter.swift; path = Model/DistributionCenter.swift; sourceTree = "<group>"; };
+		248166481EC7246800BF54E6 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemTableViewCell.swift; path = Model/TableViewCell/ItemTableViewCell.swift; sourceTree = "<group>"; };
+		248166491EC7246800BF54E6 /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ItemTableViewCell.xib; path = Model/TableViewCell/ItemTableViewCell.xib; sourceTree = "<group>"; };
+		2481664E1EC74F2200BF54E6 /* MergedOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MergedOrder.swift; path = Model/MergedOrder.swift; sourceTree = "<group>"; };
+		248166501EC8B0AD00BF54E6 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Model/Result.swift; sourceTree = "<group>"; };
 		2492DA2A1EC20FB1009AB12E /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = Model/Network.swift; sourceTree = "<group>"; };
 		24BB0B211E940B4A00B2C578 /* POD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BB0B241E940B4A00B2C578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +119,10 @@
 		24C0C2871EAF984A0031B006 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderTableViewCell.xib; path = Model/TableViewCell/OrderTableViewCell.xib; sourceTree = "<group>"; };
 		24D2F5F01EB5E0130077F7FC /* PackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackViewController.swift; sourceTree = "<group>"; };
 		24D2F5F21EB5E1A70077F7FC /* DeliveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
+		24D5F40D1ECABE370033E08C /* AddCustomerBasicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCustomerBasicViewController.swift; sourceTree = "<group>"; };
+		24D5F40F1ECABE530033E08C /* AddCustomerAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCustomerAddressViewController.swift; sourceTree = "<group>"; };
+		24D5F4111ECABE640033E08C /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		24D5F4151ECABF380033E08C /* AddOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOrderViewController.swift; sourceTree = "<group>"; };
 		743C1A51283082C54735CCE1 /* Pods_POD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		848867C380D372E7F82EA888 /* Pods-POD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POD.release.xcconfig"; path = "Pods/Target Support Files/Pods-POD/Pods-POD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,7 +172,9 @@
 				2465DCDD1EAF892F0092B46B /* Vehicle.swift */,
 				2465DCCB1EAF7FEC0092B46B /* Warehouse.swift */,
 				2465DCC91EAF7F4C0092B46B /* WarehouseStaff.swift */,
+				248166501EC8B0AD00BF54E6 /* Result.swift */,
 				2492DA2A1EC20FB1009AB12E /* Network.swift */,
+				2481664E1EC74F2200BF54E6 /* MergedOrder.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -192,6 +210,10 @@
 				24C04B961EA0E64500F23CC2 /* RoundedButton.swift */,
 				24C04B981EA0E89900F23CC2 /* RoundedView.swift */,
 				24BB0B2A1E940B4A00B2C578 /* Main.storyboard */,
+				24D5F4151ECABF380033E08C /* AddOrderViewController.swift */,
+				24D5F4111ECABE640033E08C /* AddProductViewController.swift */,
+				24D5F40F1ECABE530033E08C /* AddCustomerAddressViewController.swift */,
+				24D5F40D1ECABE370033E08C /* AddCustomerBasicViewController.swift */,
 				241A3F471EC34F7300A1743F /* OrdersDetailViewController.swift */,
 				24BB0B261E940B4A00B2C578 /* OrdersViewController.swift */,
 				24BB0B281E940B4A00B2C578 /* PickViewController.swift */,
@@ -231,6 +253,8 @@
 			children = (
 				24C0C2861EAF984A0031B006 /* OrderTableViewCell.swift */,
 				24C0C2871EAF984A0031B006 /* OrderTableViewCell.xib */,
+				248166481EC7246800BF54E6 /* ItemTableViewCell.swift */,
+				248166491EC7246800BF54E6 /* ItemTableViewCell.xib */,
 			);
 			name = "Custom TableViewCell";
 			sourceTree = "<group>";
@@ -369,6 +393,7 @@
 				24BB0B311E940B4A00B2C578 /* LaunchScreen.storyboard in Resources */,
 				24BB0B2E1E940B4A00B2C578 /* Assets.xcassets in Resources */,
 				24C0C2891EAF984A0031B006 /* OrderTableViewCell.xib in Resources */,
+				2481664B1EC7246800BF54E6 /* ItemTableViewCell.xib in Resources */,
 				24BB0B2C1E940B4A00B2C578 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,12 +473,15 @@
 				2465DCD21EAF858E0092B46B /* Insurance.swift in Sources */,
 				24C0C2881EAF984A0031B006 /* OrderTableViewCell.swift in Sources */,
 				2465DCDC1EAF88ED0092B46B /* Driver.swift in Sources */,
+				248166511EC8B0AD00BF54E6 /* Result.swift in Sources */,
 				2465DCE61EAF8CAD0092B46B /* DistributionCenter.swift in Sources */,
 				24BB0B291E940B4A00B2C578 /* PickViewController.swift in Sources */,
 				2465DCC41EAF7AF30092B46B /* Employee.swift in Sources */,
 				2465DCCC1EAF7FEC0092B46B /* Warehouse.swift in Sources */,
+				24D5F4161ECABF380033E08C /* AddOrderViewController.swift in Sources */,
 				2465DCDE1EAF892F0092B46B /* Vehicle.swift in Sources */,
 				241332191EB61B370019144F /* DeliveryCompletedViewController.swift in Sources */,
+				24D5F4101ECABE530033E08C /* AddCustomerAddressViewController.swift in Sources */,
 				2465DCDA1EAF86B70092B46B /* Customer.swift in Sources */,
 				24BB0B251E940B4A00B2C578 /* AppDelegate.swift in Sources */,
 				24C04B991EA0E89900F23CC2 /* RoundedView.swift in Sources */,
@@ -462,14 +490,18 @@
 				2465DCE21EAF8A7A0092B46B /* DCStaff.swift in Sources */,
 				24BB0B271E940B4A00B2C578 /* OrdersViewController.swift in Sources */,
 				2465DCD81EAF86570092B46B /* PurchaseOrder.swift in Sources */,
+				24D5F4121ECABE640033E08C /* AddProductViewController.swift in Sources */,
 				2465DCD41EAF85E60092B46B /* Status.swift in Sources */,
 				2465DCCA1EAF7F4C0092B46B /* WarehouseStaff.swift in Sources */,
+				2481664A1EC7246800BF54E6 /* ItemTableViewCell.swift in Sources */,
 				245B13231EB5F18F0094B393 /* TestSegmentViewController.swift in Sources */,
 				241332171EB61B270019144F /* DeliveryInDeliveryViewController.swift in Sources */,
 				24D2F5F31EB5E1A70077F7FC /* DeliveryViewController.swift in Sources */,
 				2465DCC61EAF7B680092B46B /* Order.swift in Sources */,
+				24D5F40E1ECABE370033E08C /* AddCustomerBasicViewController.swift in Sources */,
 				241332151EB61B000019144F /* DeliveryPendingViewController.swift in Sources */,
 				2492DA2B1EC20FB1009AB12E /* Network.swift in Sources */,
+				2481664F1EC74F2200BF54E6 /* MergedOrder.swift in Sources */,
 				2465DCC81EAF7E590092B46B /* Admin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,7 +12,9 @@ class OrdersViewController: UIViewController{
 
     @IBOutlet weak var tableView: UITableView!
 
-    var currentTableData:[Order] = []
+    //var currentTableData:[Order] = []
+    var mergedTableData:[MergedOrder] = []
+    var mergedOrdersDict: [Int:[Order]] = [:]
     
     //NETWORK
     let network:Network = Network()
@@ -21,19 +23,19 @@ class OrdersViewController: UIViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
         tableView.delegate = self
 //        tableView.dataSource = self
         tableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderTableViewCell")
 
-//        currentTableData.append(Order(orderID: 000001, date: Date(), productSKU: "CF0884720", customerID: 100001, statusID: 1, warehouseStaffID: 1, driverID: 1, vehicleID: 1, dcStaffID: 1, insuranceID: 1))
-//        currentTableData.append(Order(orderID: 000002, date: Date(), productSKU: "CK0837410", customerID: 100002, statusID: 1, warehouseStaffID: 1, driverID: 1, vehicleID: 1, dcStaffID: 1, insuranceID: 1))
-//        currentTableData.append(Order(orderID: 000003, date: Date(), productSKU: "CK7311265", customerID: 100003, statusID: 1, warehouseStaffID: 1, driverID: 1, vehicleID: 1, dcStaffID: 1, insuranceID: 1))
-        
         //FETCH ORDER
         fetchOrder()
-    }
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        fetchOrder()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,8 +50,8 @@ class OrdersViewController: UIViewController{
     }
     
     //MARK:- Table
-    func setTableData(orders:[Order]){
-        self.currentTableData = orders
+    func setTableData(orders:[MergedOrder]){
+        self.mergedTableData = orders
         self.tableView.reloadData()
     }
     
@@ -61,22 +63,72 @@ class OrdersViewController: UIViewController{
                 guard let orderArray = orderArray else{
                     return
                 }
-                self.setTableData(orders: orderArray)
+                //SET UNIQUE ORDERS
+                self.setUniqueOrders(orders: orderArray)
                 
+                //SET TABLE DATA
+                self.setTableData(orders: self.mergedTableData)
             }
             ,onFailure: {
                 print("fail")
         })
     }
     
+    //TODO:—
+    
+    func setUniqueOrders(orders:[Order]){
+        
+        //var orderIDArray = [String]()
+        
+        //GET ALL ORDERS INTO AN ARRAY
+//        for order in orders{
+//            orderIDArray.append(order.orderID)
+//        }
+        
+        //GET UNIQUE ORDER IDs ARRAY
+        //var mergedOrderIDArray = Array(Set(orderIDArray))
+        
+        //CLEAR DICTIONARY
+    
+        mergedOrdersDict.removeAll()
+        mergedTableData.removeAll()
+        
+        //BUILD DICTIONARY
+        
+        for order in orders{
+            let keyExists = mergedOrdersDict[(order.orderID)] != nil
+            if(keyExists){
+                var temp:[Order] = mergedOrdersDict[(order.orderID)]!
+                temp.append(order)
+                mergedOrdersDict[(order.orderID)] = temp
+            }else{
+                mergedOrdersDict[order.orderID] = [order]
+            }
+            //dump(mergedOrdersDict)
+        }
+        for (key,value) in mergedOrdersDict{
+            mergedTableData.append(MergedOrder(orderID: key,orderList: value))
+        }
+    }
+    
+    
+    
     //MARK:- Navigation
     
-    func toOrdersDetailViewController(order:Order){
+    func toOrdersDetailViewController(order:MergedOrder){
         let VC2 = self.storyboard?.instantiateViewController(withIdentifier: "OrdersDetailViewController") as! OrdersDetailViewController
-        VC2.order = order
+        VC2.mergedOrder = order
         self.present(VC2, animated: true, completion: {() -> Void in
         })
     }
+    
+    @IBAction func onClickRefreshBtn(_ sender: Any) {
+        fetchOrder()
+    }
+
+    
+    
+    
 
 }
 extension OrdersViewController: UITableViewDelegate, UITableViewDataSource{
@@ -90,7 +142,7 @@ extension OrdersViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentTableData.count
+        return mergedTableData.count
         //number of rows
     }
     
@@ -99,14 +151,14 @@ extension OrdersViewController: UITableViewDelegate, UITableViewDataSource{
         let simpleTableIdentifier = "OrderTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: simpleTableIdentifier) as! OrderTableViewCell
 //        let cell = tableView.dequeueReusableCell(withIdentifier: simpleTableIdentifier, for: indexPath) as! OrderTableViewCell
-        var order = currentTableData[row]
+        var order = mergedTableData[row]
         cell.setupUI(withOrder: order)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row;
-        var order = currentTableData[row]
+        var order = mergedTableData[row]
         toOrdersDetailViewController(order:order) //calling function in navigation
     }
     

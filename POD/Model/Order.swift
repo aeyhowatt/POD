@@ -10,10 +10,13 @@ import UIKit
 import ObjectMapper
 
 class Order:Mappable {
+//    var orderID: Int = -1
     var orderID: Int = -1
-    var dateTime: Date = Date()
+    //var dateTime: Date = Date()
+    var dateTime: String = ""
     var productSKU: String = "Unknown SKU"
     //var customer:Customer?  //from Mappable
+//    var customerID: Int = -1
     var customerID: Int = -1
     var firstName: String = ""
     var lastName: String = ""
@@ -21,6 +24,8 @@ class Order:Mappable {
     var email: String = ""
     var phoneNum: String = ""
     
+    var productName: String = ""
+    var quantity: Int = -1
     
     var statusID: Int = -1
     var warehouseStaffID: Int = -1
@@ -38,15 +43,19 @@ class Order:Mappable {
     }
     
     
-    init(orderID:Int,date:Date?=nil,dateTime:String?=nil,productSKU:String,customerID:Int,statusID:Int,firstName:String,lastName:String,locationID:Int,email:String,phoneNum:String,warehouseStaffID:Int,driverID:Int,vehicleID:Int,dcStaffID:Int,insuranceID:Int){
+    //date:Date?=nil
+    
+    init(orderID:Int,dateTime:String,productSKU:String,customerID:Int,statusID:Int,firstName:String,lastName:String,locationID:Int,email:String,phoneNum:String,productName:String,quantity:Int,warehouseStaffID:Int,driverID:Int,vehicleID:Int,dcStaffID:Int,insuranceID:Int){
         self.orderID = orderID
-        if let date = date{
-            self.dateTime = date
-        }else if let dateTime = dateTime{
-            self.dateTime = Date()
-        }else{
-            self.dateTime = Date()
-        }
+//        if let date = date{
+//            self.dateTime = date
+//        }else if let dateTime = dateTime{
+//            self.dateTime = Date()
+//        }else{
+//            self.dateTime = Date()
+//        }
+        
+        self.dateTime = dateTime
         self.productSKU = productSKU
         self.customerID = customerID
         self.firstName = firstName
@@ -54,8 +63,12 @@ class Order:Mappable {
         self.locationID = locationID
         self.email = email
         self.phoneNum = phoneNum
-    
+        
+        self.productName = productName
+        self.quantity = quantity
+        
         self.statusID = statusID
+        
         self.warehouseStaffID = warehouseStaffID
         self.driverID = driverID
         self.vehicleID = vehicleID
@@ -66,13 +79,21 @@ class Order:Mappable {
     /* Methods */
     
     func mapping(map: Map) {
-        var orderIDStr:String = ""
-        var customerIDStr:String = ""
-        orderIDStr <- map["order_id"]
-        customerIDStr <- map["customer_id"]
-        orderID = Int(orderIDStr)!
+
+        orderID <- map["order_id"]
         dateTime <- map["date_time"] //parse here from string into Date
         productSKU <- map["product_sku"]
-        customerID = Int(customerIDStr)!
+        customerID <- map["customer_id"]
+        
+        firstName <- map["first_name"]
+        lastName <- map["last_name"]
+        locationID <- map["location_id"]
+        email <- map["email"]
+        phoneNum <- map["phone_number"]
+        statusID <- map["status_id"]
+        
+        productName <- map["name"]
+        quantity <- map["quantity"]
+
     }
 }

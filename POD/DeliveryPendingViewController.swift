@@ -13,7 +13,8 @@ class DeliveryPendingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var currentTableData:[Order] = []
+    var mergedTableData:[MergedOrder] = []
+    var mergedOrdersDict: [Int:[Order]] = [:]
 
     //NETWORK
     let network:Network = Network()
@@ -26,12 +27,14 @@ class DeliveryPendingViewController: UIViewController {
         tableView.delegate = self
         //tableView.dataSource = self
         tableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderTableViewCell")
-        
-//        currentTableData.append(Order(orderID: 000001, dateTime: "2017-04-19 08:13:45", productSKU: "CK5540387", customerID: 100014, statusID: 1, warehouseStaffID: 1, driverID: 1, vehicleID: 1, dcStaffID: 1, insuranceID: 1))
-//        currentTableData.append(Order(orderID: 000001, dateTime: "2017-05-01 07:55:15", productSKU: "CF0884720", customerID: 100015, statusID: 1, warehouseStaffID: 1, driverID: 1, vehicleID: 1, dcStaffID: 1, insuranceID: 1))
 
         fetchOrder()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        fetchOrder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,8 +62,8 @@ class DeliveryPendingViewController: UIViewController {
     }
     
     //MARK:- Table
-    func setTableData(orders:[Order]){
-        self.currentTableData = orders
+    func setTableData(orders:[MergedOrder]){
+        self.mergedTableData = orders
         self.tableView.reloadData()
     }
     
@@ -72,19 +75,49 @@ class DeliveryPendingViewController: UIViewController {
                 guard let orderArray = orderArray else{
                     return
                 }
-                self.setTableData(orders: orderArray)
+                //SET UNIQUE ORDERS
+                self.setUniqueOrders(orders: orderArray)
                 
+                //SET TABLE DATA
+                self.setTableData(orders: self.mergedTableData)
         }
             ,onFailure: {
                 print("fail")
         })
     }
     
+    //TODO:—
+    
+    func setUniqueOrders(orders:[Order]){
+        //CLEAR DICTIONARY
+        
+        mergedOrdersDict.removeAll()
+        mergedTableData.removeAll()
+        
+        //BUILD DICTIONARY
+        
+        for order in orders{
+            let keyExists = mergedOrdersDict[(order.orderID)] != nil
+            if(keyExists){
+                var temp:[Order] = mergedOrdersDict[(order.orderID)]!
+                temp.append(order)
+                mergedOrdersDict[(order.orderID)] = temp
+            }else{
+                mergedOrdersDict[order.orderID] = [order]
+            }
+            //dump(mergedOrdersDict)
+        }
+        for (key,value) in mergedOrdersDict{
+            mergedTableData.append(MergedOrder(orderID: key,orderList: value))
+        }
+    }
+    
+    
     //MARK:- Navigation
     
-    func toOrdersDetailViewController(order:Order){
+    func toOrdersDetailViewController(order:MergedOrder){
         let VC2 = self.storyboard?.instantiateViewController(withIdentifier: "OrdersDetailViewController") as! OrdersDetailViewController
-        VC2.order = order
+        VC2.mergedOrder = order
         self.present(VC2, animated: true, completion: {() -> Void in
         })
     }
@@ -102,7 +135,7 @@ extension DeliveryPendingViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentTableData.count
+        return mergedTableData.count
         //number of rows
     }
     
@@ -110,16 +143,15 @@ extension DeliveryPendingViewController: UITableViewDelegate, UITableViewDataSou
         let row = indexPath.row;
         let simpleTableIdentifier = "OrderTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: simpleTableIdentifier) as! OrderTableViewCell
-        //        let cell = tableView.dequeueReusableCell(withIdentifier: simpleTableIdentifier, for: indexPath) as! OrderTableViewCell
-        var order = currentTableData[row]
+        var order = mergedTableData[row]
         cell.setupUI(withOrder: order)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row;
-        var order = currentTableData[row]
-        toOrdersDetailViewController(order: order) //calling function in navigation
+        var order = mergedTableData[row]
+        toOrdersDetailViewController(order:order) //calling function in navigation
     }
     
     
