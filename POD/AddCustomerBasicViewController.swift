@@ -18,7 +18,18 @@ class AddCustomerBasicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddCustomerBasicViewController.dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,6 +43,28 @@ class AddCustomerBasicViewController: UIViewController {
 
     @IBAction func onClickCancelBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
     /*
     // MARK: - Navigation

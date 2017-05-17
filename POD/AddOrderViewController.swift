@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol AddOrderViewControllerDelegate {
+    func newProductUpdate(product:Product)
+} 
+
 class AddOrderViewController: UIViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +35,14 @@ class AddOrderViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
+    func toOrdersDetailViewController(object:Product){
+        let VC2 = self.storyboard?.instantiateViewController(withIdentifier: "SearchProductViewController") as! SearchProductViewController
+        //VC2.product = object //VC2's variable name
+        VC2.delegate = self
+        self.present(VC2, animated: true, completion: {() -> Void in
+        })
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -40,4 +53,10 @@ class AddOrderViewController: UIViewController {
     }
     */
 
+}
+
+extension AddOrderViewController:AddOrderViewControllerDelegate{
+    func newProductUpdate(product:Product){
+        
+    }
 }

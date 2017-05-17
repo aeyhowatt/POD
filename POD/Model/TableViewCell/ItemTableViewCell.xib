@@ -33,12 +33,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_item" translatesAutoresizingMaskIntoConstraints="NO" id="25n-MR-44P">
+                                <rect key="frame" x="16" y="20" width="32" height="32"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.94891661405563354" green="0.94907897710800171" blue="0.94890636205673218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="72" id="CEz-Cc-6oF"/>
+                            <constraint firstItem="25n-MR-44P" firstAttribute="centerY" secondItem="7D5-Dk-6Z2" secondAttribute="centerY" id="Kbd-P9-Rn5"/>
                             <constraint firstItem="ud8-aF-3r7" firstAttribute="top" secondItem="7D5-Dk-6Z2" secondAttribute="top" constant="16" id="Lgs-gp-NxO"/>
                             <constraint firstItem="9Y6-3S-FwC" firstAttribute="leading" secondItem="7D5-Dk-6Z2" secondAttribute="leading" constant="64" id="QNE-D0-HVF"/>
+                            <constraint firstItem="25n-MR-44P" firstAttribute="leading" secondItem="7D5-Dk-6Z2" secondAttribute="leading" constant="16" id="Rxs-oT-0x5"/>
                             <constraint firstItem="ud8-aF-3r7" firstAttribute="leading" secondItem="7D5-Dk-6Z2" secondAttribute="leading" constant="64" id="Tvh-bu-ETp"/>
                             <constraint firstItem="9Y6-3S-FwC" firstAttribute="top" secondItem="ud8-aF-3r7" secondAttribute="top" constant="16" id="i3l-8F-vGq"/>
                         </constraints>
@@ -74,4 +79,7 @@
             <point key="canvasLocation" x="34" y="68"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic_item" width="32" height="32"/>
+    </resources>
 </document>
