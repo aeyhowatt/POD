@@ -38,6 +38,7 @@ class Network {
         }
 //        requests.append(request)
     }
+    
     func updateOrderArray( status: Int=1, orderID: Int=0,onComplete: @escaping (_ result: Result?) -> Void,onFailure: @escaping () -> Void){
         let SUB_LINK = "/update_status.php" // /customer/1
         
@@ -62,6 +63,28 @@ class Network {
         //        requests.append(request)
     }
     
+    func getSearchProducts( searchQuery: String="",onComplete: @escaping (_ array: [Product]?) -> Void,onFailure: @escaping () -> Void){
+        let SUB_LINK = "/search_product_by_name.php" // /customer/1
+        
+        let request = Alamofire.request(BASE_LINK+SUB_LINK, method: .get, parameters: ["search_text":searchQuery])
+            .responseArray { (response: DataResponse<[Product]>) in
+                //print("Fetching at:\(response.request?.url?.absoluteString)")
+                switch response.result {
+                case .success:
+                    var array:[Product]? = nil
+                    if let JSON = response.result.value{
+                        array = JSON
+                    }
+                    print("Complete")
+                    onComplete(array)
+                    break
+                case .failure:
+                    print("Fetching Failed at:\(response.request?.url?.absoluteString)")
+                    onFailure()
+                }
+        }
+        //        requests.append(request)
+    }
     
 }
 

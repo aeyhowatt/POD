@@ -54,6 +54,8 @@ class OrdersDetailViewController: UIViewController {
     }
 
     @IBAction func onClickDeclineBtn(_ sender: Any) {
+        updateOrderStatus(newStatus: 9, orderToUpdate: (order?.orderID)!)
+        
         self.dismiss(animated: true, completion: nil)
 
     }
@@ -61,7 +63,6 @@ class OrdersDetailViewController: UIViewController {
     @IBAction func onClickAcceptBtn(_ sender: Any) {
         updateOrderStatus(newStatus: (order?.statusID)!+1, orderToUpdate: (order?.orderID)!)
         
-
         self.dismiss(animated: true, completion: nil)
     }
     

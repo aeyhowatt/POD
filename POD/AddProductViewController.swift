@@ -10,6 +10,8 @@ import UIKit
 
 class AddProductViewController: UIViewController {
 
+    var product: Product?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,4 +40,11 @@ class AddProductViewController: UIViewController {
     }
     */
 
+}
+
+
+extension AddProductViewController:SearchProductViewControllerDelegate{
+    func newProductUpdate(product: Product) {
+        <#code#>
+    }
 }

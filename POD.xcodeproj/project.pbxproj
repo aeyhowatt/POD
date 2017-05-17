@@ -51,6 +51,9 @@
 		24D5F4101ECABE530033E08C /* AddCustomerAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D5F40F1ECABE530033E08C /* AddCustomerAddressViewController.swift */; };
 		24D5F4121ECABE640033E08C /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D5F4111ECABE640033E08C /* AddProductViewController.swift */; };
 		24D5F4161ECABF380033E08C /* AddOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D5F4151ECABF380033E08C /* AddOrderViewController.swift */; };
+		24D5F4181ECB5AC10033E08C /* SearchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D5F4171ECB5AC10033E08C /* SearchProductViewController.swift */; };
+		24D5F41B1ECB655B0033E08C /* ResultsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D5F4191ECB655B0033E08C /* ResultsViewCell.swift */; };
+		24D5F41C1ECB655B0033E08C /* ResultsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D5F41A1ECB655B0033E08C /* ResultsViewCell.xib */; };
 		A632EFFC5BC310C767E93DF3 /* Pods_POD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743C1A51283082C54735CCE1 /* Pods_POD.framework */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +126,9 @@
 		24D5F40F1ECABE530033E08C /* AddCustomerAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCustomerAddressViewController.swift; sourceTree = "<group>"; };
 		24D5F4111ECABE640033E08C /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		24D5F4151ECABF380033E08C /* AddOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOrderViewController.swift; sourceTree = "<group>"; };
+		24D5F4171ECB5AC10033E08C /* SearchProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchProductViewController.swift; sourceTree = "<group>"; };
+		24D5F4191ECB655B0033E08C /* ResultsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultsViewCell.swift; path = Model/ResultsViewCell.swift; sourceTree = "<group>"; };
+		24D5F41A1ECB655B0033E08C /* ResultsViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ResultsViewCell.xib; path = Model/ResultsViewCell.xib; sourceTree = "<group>"; };
 		743C1A51283082C54735CCE1 /* Pods_POD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		848867C380D372E7F82EA888 /* Pods-POD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POD.release.xcconfig"; path = "Pods/Target Support Files/Pods-POD/Pods-POD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,6 +216,7 @@
 				24C04B961EA0E64500F23CC2 /* RoundedButton.swift */,
 				24C04B981EA0E89900F23CC2 /* RoundedView.swift */,
 				24BB0B2A1E940B4A00B2C578 /* Main.storyboard */,
+				24D5F4171ECB5AC10033E08C /* SearchProductViewController.swift */,
 				24D5F4151ECABF380033E08C /* AddOrderViewController.swift */,
 				24D5F4111ECABE640033E08C /* AddProductViewController.swift */,
 				24D5F40F1ECABE530033E08C /* AddCustomerAddressViewController.swift */,
@@ -255,6 +262,8 @@
 				24C0C2871EAF984A0031B006 /* OrderTableViewCell.xib */,
 				248166481EC7246800BF54E6 /* ItemTableViewCell.swift */,
 				248166491EC7246800BF54E6 /* ItemTableViewCell.xib */,
+				24D5F4191ECB655B0033E08C /* ResultsViewCell.swift */,
+				24D5F41A1ECB655B0033E08C /* ResultsViewCell.xib */,
 			);
 			name = "Custom TableViewCell";
 			sourceTree = "<group>";
@@ -393,6 +402,7 @@
 				24BB0B311E940B4A00B2C578 /* LaunchScreen.storyboard in Resources */,
 				24BB0B2E1E940B4A00B2C578 /* Assets.xcassets in Resources */,
 				24C0C2891EAF984A0031B006 /* OrderTableViewCell.xib in Resources */,
+				24D5F41C1ECB655B0033E08C /* ResultsViewCell.xib in Resources */,
 				2481664B1EC7246800BF54E6 /* ItemTableViewCell.xib in Resources */,
 				24BB0B2C1E940B4A00B2C578 /* Main.storyboard in Resources */,
 			);
@@ -493,6 +503,7 @@
 				24D5F4121ECABE640033E08C /* AddProductViewController.swift in Sources */,
 				2465DCD41EAF85E60092B46B /* Status.swift in Sources */,
 				2465DCCA1EAF7F4C0092B46B /* WarehouseStaff.swift in Sources */,
+				24D5F4181ECB5AC10033E08C /* SearchProductViewController.swift in Sources */,
 				2481664A1EC7246800BF54E6 /* ItemTableViewCell.swift in Sources */,
 				245B13231EB5F18F0094B393 /* TestSegmentViewController.swift in Sources */,
 				241332171EB61B270019144F /* DeliveryInDeliveryViewController.swift in Sources */,
@@ -503,6 +514,7 @@
 				2492DA2B1EC20FB1009AB12E /* Network.swift in Sources */,
 				2481664F1EC74F2200BF54E6 /* MergedOrder.swift in Sources */,
 				2465DCC81EAF7E590092B46B /* Admin.swift in Sources */,
+				24D5F41B1ECB655B0033E08C /* ResultsViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,11 +669,13 @@
 			baseConfigurationReference = 19BBF539CC21802DFE932EC7 /* Pods-POD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7E5334RA89;
 				INFOPLIST_FILE = POD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeyhwt.POD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -671,11 +685,13 @@
 			baseConfigurationReference = 848867C380D372E7F82EA888 /* Pods-POD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7E5334RA89;
 				INFOPLIST_FILE = POD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeyhwt.POD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
